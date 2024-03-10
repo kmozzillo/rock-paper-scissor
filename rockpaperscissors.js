@@ -1,5 +1,4 @@
 function getComputerChoice() {
-
     switch (Math.floor(Math.random() * 3)) {
         case 0:
             choice = "Rock";
@@ -11,7 +10,6 @@ function getComputerChoice() {
             choice = "Scissors";
             break;
     };
-
     return choice;
 };
 
@@ -19,7 +17,7 @@ function playRound(playerSelection, computerSelection) {
     let win = `You Win! ${playerSelection} beats ${computerSelection}`
     let lose = `You Lose! ${computerSelection} beats ${playerSelection}`
     let tie = 'Tie!'
-    switch(playerSelection.toLowerCase()) {
+    switch(playerSelection) {
         case 'rock':
             if (computerSelection === 'Rock') {
                 console.log(tie);
@@ -67,6 +65,7 @@ function playGame() {
     let computer = 0
     for (let step = 0; step < 5; step++) {
         console.log(`Round ${step + 1}`)
+        var playerSelection = prompt("Rock, Paper, or Scissors?: ").toLowerCase();
         let computerSelection = getComputerChoice();
         switch(playRound(playerSelection, computerSelection)) {
             case 0:
@@ -92,7 +91,10 @@ function playGame() {
 
 };
 
+function main() {
+    playGame();
+};
 
-const playerSelection = prompt("Rock, Paper, or Scissors?: "); 
-playGame();
+main();
+
 
